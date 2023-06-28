@@ -1,0 +1,24 @@
+.sidebar-container{
+    background-color: transparent;
+    height: 92vh;
+    flex: 1;
+}
+
+.sidebar-item{
+    
+    border: 2px solid whitesmoke;
+    margin: 8px;
+    padding: 11px;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    border-block-style: none;
+    border-radius: 101px;
+    background-color: #f5f5f54a;
+    font-style: oblique;
+    font-weight: 100;
+}
+
+.sidebar-item:hover{
+    border: 2px solid#f5f5f567;
+}

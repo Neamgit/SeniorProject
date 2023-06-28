@@ -1,0 +1,90 @@
+
+----------------------------------------------------  
+                  Models
+------------------------------------------------
+
+Issue model: This model would represent the issues being voted on in the election,
+     and would typically include fields such as
+      title, description, and potential outcomes.
+
+Ballot model: This model would represent the ballots used in the election, 
+        and would typically include fields such as 
+        election ID, ballot type, and list of candidates or issues.
+
+Election model: This model would represent the elections being held on the website,
+            and would typically include fields such as
+             title, date, location, and description.
+
+Result model: This model would represent the results of the election,
+ and would typically include fields such as 
+ candidate or issue ID, vote count, and percentage of votes.
+
+----------------------------------------------------------------
+references
+-------------------------------------------------------
+When a voter casts their vote, they are likely to select a candidate from a list of
+ candidates running in their constituency. 
+ ===This means that the Candidate model would need to have a field for the constituency 
+ they are running in, which would be used to filter the list of candidates presented
+  to the voter.
+
+When a candidate is registered, their details (such as name, political party, and constituency)
+ would need to be displayed on the website for voters to see. 
+ ====This means that the Voter model would need to have a way to retrieve the list of
+  candidates running in the voter's constituency, so that this information can be 
+  displayed to them.
+
+In some cases, a voter may need to verify their identity before casting their vote.
+ This could be done by checking the voter's identification number against the voter database.
+ ====== This means that the Voter model would need to have a field for the identification number
+ , which could be used to verify the voter's identity. 
+The Candidate model, on the other hand, would not need this field.
+----------------------------------------------------------------------------------------
+Ballot Controller
+----------------------------------------------------------------------------------------
+createBallot: This function would handle the creation of a new ballot for an election. 
+              It would take in the required information for a ballot 
+              (such as election ID, ballot type, and list of candidates/issues) 
+              and create a new Ballot document in the database.
+
+getBallot: This function would retrieve a specific ballot from the database, given its ID. 
+              It could be used to display the details of a ballot to a voter before they
+               cast their vote.
+
+castVote: This function would handle the submission of a vote by a voter.
+               It would take in the voter's ID, the ballot ID, 
+               and the ID of the candidate/issue they are voting for, 
+               and update the corresponding Result document in the database with 
+               the new vote count and percentage.
+
+getResults: This function would retrieve the results of an election, given its ID. 
+              It would query the Result collection to calculate the vote count
+               and percentage for each candidate/issue, and return an array of 
+               objects containing this information.
+
+getWinners: This function would retrieve the winner(s) of an election, given its ID.
+               It would use the getResults function to calculate the vote count and percentage
+                for each candidate/issue,
+                 and return an array of objects containing the winning candidate(s)/issue(s) 
+                 and their vote counts.
+
+--------------------------------------------------------------------------------------------------
+function that may add in election controller
+----------------------------------------------------------------------------------------------
+getElectionResults: This function would retrieve the results of an election, given its ID. 
+                    It would use the Result model to calculate the vote count and 
+                    percentage for each candidate/issue, and return an array of 
+                    objects containing this information.
+
+getElectionWinners: This function would retrieve the winner(s) of an election, given its ID. 
+                    It would use the getElectionResults function to calculate the vote count 
+                    and percentage for each candidate/issue, and return an array of 
+                    objects containing the winning candidate(s)/issue(s) and their vote counts.
+
+getVoterBallots: This function would retrieve a list of ballots that a specific voter
+                   is eligible to vote on, given their ID and the election ID.
+                    It would use the Voter and Ballot models to determine which ballots
+                     the voter is eligible to vote on, and return an array of objects 
+                     containing the details of each ballot.
+
+-----------------------------------------------------------------------------------------------

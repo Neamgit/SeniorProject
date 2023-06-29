@@ -1,0 +1,43 @@
+@import url('https://fonts.goosle.com/css2?family=Poppins:wght@200;300;400;500;600;700&display');
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins',sans-serif;
+    justify-content: space-around;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(#e91818ee,#635c5c);
+    
+}
+.container{ 
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    
+}
+
+
+.container .title{
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+.container .title::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: linear-gradient(#e91818ee,#635c5c);
+}
